@@ -1,38 +1,174 @@
-.App {
-  text-align: center;
-}
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+:root {
+  --default-color: #993232;
+  --default-text-color: #cbe1ff;
+  --white: #ffffff;
+  --black--first: #363e4d;
+  --black--second: #242933;
+  --main-black: #161a20;
   }
+
+  *{
+    margin: 0px;
+    padding: 0px;
+    font-family: "Roboto", sans-serif;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color: hsla(0,0,0,0);
+    -webkit-tap-highlight-color:#00000000;
+    -webkit-tap-highlight-color:#0000;
+ }
+
+ body{
+  background: var(--default-color);
+  background-color: #e4e4e4;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: 100%; 
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+body::-webkit-scrollbar{
+  display: none !important;
+}
+
+.Container{
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 0.5rem;
+  max-width: 750px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.App-link {
-  color: #61dafb;
+.Container .Calculator{
+  height: 90vh;
+  width: 330px;
+  background-color: var(--main-black);
+  border-radius: 0.5rem;
+  box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.5);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+.Aligned {
+  padding: 0.5rem 1rem;
+}
+
+.Calculator-Heading{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  margin-top: 0.5rem;
+  overflow: hidden;
+}
+
+.Calculator-Heading h3{
+  padding: 0.5rem;
+  background-color: var(--black--first);
+  font-size: 0.8rem;
+  font-weight: 400;
+  margin: auto;
+}
+
+.Calculator-Heading h3.Disable{
+  background-color: var(--default-text-color);
+} 
+
+.Calculator-Screen{
+  display: flex;
+  flex-direction: column;
+  justify-content:flex-end;
+  align-items: flex-end;
+}
+
+.Calculator-output{
+  display:inline-flex;
+  align-items: center;
+  flex-direction: row;
+  margin-bottom: 0.5rem;
+  font-size: 2rem;
+  color: var(--white);
+  font-weight: 900;
+  max-width: 300px;
+}
+
+.Calculator-Input {
+  background-color: var(--black--first);
+  padding: 0.4rem 1rem;
+  grid-template-columns: minmax(0px,50px) repeat(2, 1fr);
+  font-size: 1.8rem;
+  font-weight: 300;
+  overflow: hidden;
+}
+
+.Calculator-Input span {
+  letter-spacing: 0.1rem;
+  color: var(--default-text-color);
+  word-wrap: break-word;
+  word-break: break-all;
+  overflow-y: scroll;
+  grid-column: span 2;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.Calculator-Input span::-webkit-scrollbar{
+  display: none !important;
+}
+
+.Calculator-Button {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 0.5rem 1rem;
+}
+
+.Calculator-Button > button {
+  cursor: pointer;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 700;
+  transition: all 0.5s linear;
+  text-transform: uppercase;
+  background-color: var(--black--first);
+  border: 3px solid var(--main-black);
+  border-radius: 10px;
+  box-shadow: -8px -8px 15px rgba(255, 255, 255, 0.1);
+  
+}
+
+.Calculator-Button > Button:hover {
+  border: none;
+  background-color: rgba(0,0,0,0.2) !important ;
+}
+
+.Calculator-Button > Button.Top-Btn{
+  background-color: var(--black--first);
+}
+
+.Calculator-Button > Button.Normal-Btn {
+  background-color: var(--black--second);
+}
+
+.Calculator-Button > Button.Special-Btn {
+  background-color: var(--default-color);
+}
+
+Button {
+  border: unset;
+  box-shadow: unset;
+  color: var(--default-text-color);
+  cursor: pointer;
+}
+
+Button.Special-Btn {
+ background-color: var(--default-color);
+}
+
+.Calculator-wrapper{
+  display: grid;
+  height: 100%;
+  grid-template-rows: 10% 28% 11% 51%;
 }
